@@ -1,0 +1,14 @@
+[user]
+	email = luzgina51@gmail.com
+	name = Elena Luzgina
+	signingKey = ""
+[core]
+	longpaths = true
+[init]
+	defaultBranch = master
+[gpg]
+	program = gpg
+[commit]
+	gpgSign = false
+[tag]
+	forceSignAnnotated = false
