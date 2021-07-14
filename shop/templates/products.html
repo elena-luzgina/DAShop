@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Products{% endblock %}
+
+{% block content %}
+
+    {% if products %}
+        <div class="row row-cols-4">
+            <div class="col">Name</div>
+            <div class="col">Price</div>
+            <div class="col">Description</div>
+        </div>
+        <hr>
+    {% endif %}
+
+    {% for product in products %}
+        <div class="row row-cols-4">
+            <div class="col">{{ product.name }}</div>
+            <div class="col">{{ product.price }}</div>
+            <div class="col">{{ product.description }}</div>
+            <div class="col">
+                <a href="" class="btn btn-link">View</a>
+            </div>
+        </div>
+    {% empty %}
+        <h3>No categories created</h3>
+    {% endfor %}
+
+{% endblock %}

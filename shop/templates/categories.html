@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
+
 {% block title %}Categories{% endblock %}
+
 {% block content %}
+    {% for category in categories %}
+        <div class="row row-cols-1">
+            <div class="col">{{ category.title }}</div>
+        </div>
+    {% empty %}
+        <h3>No categories created</h3>
+    {% endfor %}
 {% endblock %}
