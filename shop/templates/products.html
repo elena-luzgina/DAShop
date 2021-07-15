@@ -4,6 +4,12 @@
 
 {% block content %}
 
+    <div class="row row cols-1">
+        <div class="col">
+            <a href="{% url 'categories' %}" class="btn btn-link">Back to Categories</a>
+        </div>
+    </div>
+
     {% if products %}
         <div class="row row-cols-4">
             <div class="col">Name</div>
@@ -19,11 +25,11 @@
             <div class="col">{{ product.price }}</div>
             <div class="col">{{ product.description }}</div>
             <div class="col">
-                <a href="" class="btn btn-link">View</a>
+                <a href="{% url 'product_details' product.id %}" class="btn btn-link">View</a>
             </div>
         </div>
     {% empty %}
-        <h3>No categories created</h3>
+        <h3>No products in the category</h3>
     {% endfor %}
 
 {% endblock %}

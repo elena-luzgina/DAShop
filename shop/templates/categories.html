@@ -4,8 +4,11 @@
 
 {% block content %}
     {% for category in categories %}
-        <div class="row row-cols-1">
+        <div class="row row-cols-2">
             <div class="col">{{ category.title }}</div>
+            <div class="col">
+                <a href="{% url 'products' category.id %}" class="btn btn-link">View</a>
+            </div>
         </div>
     {% empty %}
         <h3>No categories created</h3>

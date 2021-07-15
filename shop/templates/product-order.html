@@ -4,5 +4,6 @@
 {% block title %}New Order{% endblock %}
 
 {% block content %}
+    <h2>Order "{{ order.product.name }}"</h2>
     {% crispy form %}
 {% endblock %}

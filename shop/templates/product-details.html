@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Product: {{ product.name }}{% endblock %}
+
+{% block content %}
+
+    <div class="row row cols-1">
+        <div class="col">
+            <a href="{% url 'product_order' product.id %}" class="btn btn-link">Back to the Product Category</a>
+        </div>
+    </div>
+
+    <div class="row row-cols-3">
+        <div class="col">Name</div>
+        <div class="col">Price</div>
+        <div class="col">Description</div>
+    </div>
+    <hr>
+
+    <div class="row row-cols-3">
+        <div class="col">{{ product.name }}</div>
+        <div class="col">{{ product.price }}</div>
+        <div class="col">{{ product.description }}</div>
+    </div>
+
+    <div class="row row cols-1">
+        <div class="col">
+            <a href="{% url 'product_order' product.id %}" class="btn btn-outline-primary">Order</a>
+        </div>
+    </div>
+
+{% endblock %}
