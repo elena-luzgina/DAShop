@@ -3,19 +3,21 @@ from django.shortcuts import render
 from django.views.generic import DetailView, ListView, CreateView
 
 from shop.forms import OrderForm
-from shop.models import Category, Product
+from shop.models import Category, Product, Order
 
 
 class CategoryListView(ListView):
     model = Category
     context_object_name = 'categories'
     template_name = 'categories.html'
+    ordering = ['title']
 
 
 class ProductListView(ListView):
     model = Product
     context_object_name = 'products'
     template_name = 'products.html'
+    ordering = ['name']
 
     def get_queryset(self):
         category = self.kwargs['category_id']
@@ -30,13 +32,14 @@ class ProductDetailsView(DetailView):
 
 
 class OrderCreateView(CreateView):
+    object: Order
+    model = Order
     form_class = OrderForm
     context_object_name = 'order'
     template_name = 'product-order.html'
-    success_url = '/'
+    pk_url_kwarg = 'product_id'
 
     def form_valid(self, form: OrderForm):
         self.object = form.save(commit=False)
-        self.object.product = self.request.product_id
         self.object.save()
-        return HttpResponseRedirect(self.get_success_url())
+        return HttpResponseRedirect(f'/product/{self.object.product.id}')

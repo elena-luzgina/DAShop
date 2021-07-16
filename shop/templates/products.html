@@ -23,7 +23,7 @@
         <div class="row row-cols-4">
             <div class="col">{{ product.name }}</div>
             <div class="col">{{ product.price }}</div>
-            <div class="col">{{ product.description }}</div>
+            <div class="col">{{ product.description | safe }}</div>
             <div class="col">
                 <a href="{% url 'product_details' product.id %}" class="btn btn-link">View</a>
             </div>

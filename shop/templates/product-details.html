@@ -6,7 +6,7 @@
 
     <div class="row row cols-1">
         <div class="col">
-            <a href="{% url 'product_order' product.id %}" class="btn btn-link">Back to the Product Category</a>
+            <a href="{% url 'categories' %}" class="btn btn-link">Back to Categories</a>
         </div>
     </div>
 
@@ -20,7 +20,7 @@
     <div class="row row-cols-3">
         <div class="col">{{ product.name }}</div>
         <div class="col">{{ product.price }}</div>
-        <div class="col">{{ product.description }}</div>
+        <div class="col">{{ product.description | safe }}</div>
     </div>
 
     <div class="row row cols-1">
